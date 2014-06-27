@@ -31,7 +31,7 @@ angular.module('githubAPI', ['CSRFScraper', 'flashMessages'])
 // At the moment this service only works once per application
 // TODO: get watching the location working
 .factory('githubUrl', function($location) {
-  var githubUrlRegex = /^https?:\/\/github.com\/([^\/]+)\/([^\/]+)\/pull(?:s|\/(\d+))/;
+  var githubUrlRegex = /^https?:\/\/github.groupondev.com\/([^\/]+)\/([^\/]+)\/pull(?:s|\/(\d+))/;
   var parts = githubUrlRegex.exec($location.absUrl());
   var githubUrl = {};
 
@@ -43,7 +43,7 @@ angular.module('githubAPI', ['CSRFScraper', 'flashMessages'])
     };
   }
   githubUrl.getAPIUrl = function() {
-    return 'https://api.github.com/repos/'+ githubUrl.owner +'/' + githubUrl.repos;
+    return 'https://github.groupondev.com/api/v3/repos/'+ githubUrl.owner +'/' + githubUrl.repos;
   };
   return githubUrl;
 })
@@ -134,7 +134,7 @@ angular.module('githubAPI', ['CSRFScraper', 'flashMessages'])
           'Accept': '*/*;q=0.5, text/javascript, application/javascript, application/ecmascript, application/x-ecmascript',
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         },
-        url: 'https://github.com/'+ githubUrl.owner +'/' + githubUrl.repos + '/issues/labels/modify_assignment',
+        url: 'https://github.groupondev.com/'+ githubUrl.owner +'/' + githubUrl.repos + '/issues/labels/modify_assignment',
         data: "issues%5B%5D="+githubUrl.prNumber+"&labels%5B%5D="+label.name,
       });
     }

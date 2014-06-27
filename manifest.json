@@ -14,7 +14,7 @@
   "permissions": [  ],
 
   "content_scripts": [{
-    "matches": ["https://github.com/*/pull*"],
+    "matches": ["https://github.groupondev.com/*/pull*"],
 
     "css": ["styles.css"],
     "js": [
